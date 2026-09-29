@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FitBuddy-AI | AI Fitness Plan Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="FitBuddy AI home">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>FitBuddy-AI</span>
+    </a>
+    <button id="headerStart" class="button button-outline">Get Started</button>
+  </header>
+
+  <main id="top">
+    <section id="landingPage" class="landing page-section">
+      <div class="hero">
+        <p class="eyebrow">YOUR WELLNESS, MADE SIMPLE</p>
+        <h1>A fitness plan that fits <em>your</em> life.</h1>
+        <p class="hero-copy">Tell FitBuddy-AI about your goals, routine, and preferences. Get a practical nutrition and movement plan built around you.</p>
+        <button id="heroStart" class="button button-primary">Create My Plan <span aria-hidden="true">→</span></button>
+      </div>
+
+      <section class="feature-grid" aria-label="FitBuddy AI benefits">
+        <article class="feature-card"><span class="feature-icon">◎</span><h2>Built for you</h2><p>Plans shaped by your goal, lifestyle, schedule, and available equipment.</p></article>
+        <article class="feature-card"><span class="feature-icon">◷</span><h2>Fits your time</h2><p>Workouts designed for the days and minutes you actually have.</p></article>
+        <article class="feature-card"><span class="feature-icon">♧</span><h2>Whole-body approach</h2><p>Nutrition, training, hydration, and recovery in one clear plan.</p></article>
+      </section>
+
+      <section class="how-section">
+        <div><p class="eyebrow">HOW IT WORKS</p><h2>Three simple steps to a smarter routine.</h2></div>
+        <ol class="steps-list">
+          <li><span>01</span><div><h3>Share your routine</h3><p>Answer a few quick questions about your lifestyle and goals.</p></div></li>
+          <li><span>02</span><div><h3>AI builds your plan</h3><p>FitBuddy-AI turns your details into a balanced, actionable plan.</p></div></li>
+          <li><span>03</span><div><h3>Move with confidence</h3><p>Follow your weekly schedule and adjust it as your routine changes.</p></div></li>
+        </ol>
+      </section>
+
+      <aside class="disclaimer"><strong>A thoughtful starting point.</strong> FitBuddy-AI provides general fitness and nutrition guidance, not medical advice. Please consult a qualified health professional before starting a new exercise or nutrition program, especially if you have a health condition or injury.</aside>
+    </section>
+
+    <section id="questionnairePage" class="page-section hidden">
+      <div class="form-shell">
+        <div class="form-heading"><p class="eyebrow" id="stepLabel">STEP 1 OF 4</p><h1 id="stepTitle">Let’s get to know you.</h1><p id="stepDescription">A few basics help us create a plan that feels realistic.</p></div>
+        <div class="progress"><span id="progressBar"></span></div>
+        <form id="fitnessForm" novalidate>
+          <section class="form-step active" data-step="1">
+            <div class="field-grid">
+              <label>First name<input name="name" type="text" maxlength="60" autocomplete="name" required placeholder="e.g. Alex" /></label>
+              <label>Age<input name="age" type="number" min="13" max="100" required placeholder="e.g. 28" /></label>
+              <label>Gender<select name="gender" required><option value="">Select an option</option><option>Female</option><option>Male</option><option>Non-binary</option><option>Prefer not to say</option></select></label>
+              <label>Workplace / occupation<input name="occupation" type="text" maxlength="120" required placeholder="e.g. Office-based designer" /></label>
+            </div>
+          </section>
+
+          <section class="form-step" data-step="2">
+            <div class="field-grid">
+              <label>Available free time<select name="free_time" required><option value="">Select an option</option><option>Early mornings</option><option>Midday</option><option>Evenings</option><option>Flexible / varies</option></select></label>
+              <label>Available workout days<select name="workout_days" required><option value="">Select an option</option><option>1–2 days per week</option><option>3 days per week</option><option>4–5 days per week</option><option>6–7 days per week</option></select></label>
+              <label>Fitness goal<select name="fitness_goal" required><option value="">Select a goal</option><option>Weight Loss</option><option>Weight Gain</option></select></label>
+              <label>Activity level<select name="activity_level" required><option value="">Select an option</option><option>Sedentary</option><option>Lightly active</option><option>Moderately active</option><option>Very active</option></select></label>
+              <label>Workout duration<select name="workout_duration" required><option value="">Select an option</option><option>15–20 minutes</option><option>30 minutes</option><option>45 minutes</option><option>60+ minutes</option></select></label>
+            </div>
+          </section>
+
+          <section class="form-step" data-step="3">
+            <div class="measurement-callout">Enter height and weight to calculate BMI automatically, or enter a known BMI instead.</div>
+            <div class="field-grid">
+              <label>Height (cm)<input name="height_cm" type="number" min="80" max="250" step="0.1" placeholder="e.g. 170" /></label>
+              <label>Weight (kg)<input name="weight_kg" type="number" min="25" max="400" step="0.1" placeholder="e.g. 65" /></label>
+              <label>Known BMI (optional)<input name="bmi" type="number" min="10" max="80" step="0.1" placeholder="e.g. 22.5" /></label>
+            </div>
+            <p class="field-hint">If you enter height and weight, we use those values first.</p>
+          </section>
+
+          <section class="form-step" data-step="4">
+            <div class="field-grid">
+              <label>Food preference<select name="food_preference" required><option value="">Select an option</option><option>Omnivore</option><option>Vegetarian</option><option>Vegan</option><option>Pescatarian</option><option>Other</option></select></label>
+              <label>Dietary restrictions / allergies<input name="dietary_restrictions" type="text" maxlength="180" required placeholder="e.g. None, dairy-free, nut allergy" /></label>
+              <label>Exercise location<select name="exercise_location" required><option value="">Select an option</option><option>Home</option><option>Gym</option><option>Outdoor</option><option>Mixed</option></select></label>
+              <label>Available equipment<input name="available_equipment" type="text" maxlength="180" required placeholder="e.g. Dumbbells, resistance bands, none" /></label>
+            </div>
+          </section>
+
+          <p id="formError" class="form-error" role="alert"></p>
+          <div class="form-actions"><button type="button" id="backButton" class="button button-outline">Back</button><button type="button" id="nextButton" class="button button-primary">Next <span aria-hidden="true">→</span></button></div>
+        </form>
+      </div>
+    </section>
+
+    <section id="reviewPage" class="page-section hidden">
+      <div class="form-shell review-shell"><p class="eyebrow">REVIEW YOUR DETAILS</p><h1>Ready to build your plan?</h1><p>Check the information below. Your results dashboard will not show your personal details.</p><div id="reviewContent" class="review-grid"></div><div class="form-actions"><button id="reviewBack" class="button button-outline">Back</button><button id="generateButton" class="button button-primary">Generate My Plan <span aria-hidden="true">→</span></button></div></div>
+    </section>
+
+    <section id="loadingPage" class="page-section hidden loading-page">
+      <div class="loader-orbit" aria-hidden="true"><div></div></div><p class="eyebrow">FITBUDDY-AI IS THINKING</p><h1>Creating a plan for your real life.</h1><p>Balancing your goals, food preferences, schedule, and training environment.</p>
+    </section>
+
+    <section id="resultsPage" class="page-section hidden">
+      <div class="results-shell">
+        <div class="results-hero"><p class="eyebrow">YOUR PERSONALIZED ROADMAP</p><h1>Here’s your fitness plan.</h1><p id="resultsIntro">A practical starting point designed around your current goal.</p><button id="startOver" class="button button-outline">Create Another Plan</button></div>
+        <div id="resultsContent" class="results-content"></div>
+        <aside class="disclaimer results-disclaimer"><strong>Health &amp; safety note.</strong> This plan is general education, not diagnosis or medical treatment. Listen to your body, progress gradually, and seek advice from a qualified clinician, dietitian, or trainer when needed.</aside>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
